@@ -1,0 +1,43 @@
+Tetris é basicamente um jogo onde formas geometricas (tetraminós) descem a tela, 
+quanto mais pontos o jogador acumula mais rapido os tetraminós descem...
+Quando uma linha se forma, ela se desfaz, as camadas superiores caem, e o jogador ganha pontos.
+
+
+LOGICA DA APLICAÇÃO:
+ 
+
+BOTÃO DE INCIAR NA TELA É EXIBIDO
+APÓS INICIADO O JOGO COM AS SEGUINTES REGRAS COMEÇARÁ::
+
+
+ #TETRAMINÓS
+1. Tetraminós são gerados automaticamente e aleatoriamente
+
+    2. São formados por quatro quadrados idênticos    
+
+        3. Podem ser movidos para os lados com as setas direita (ArrowRight) e esquerda (ArrowLeft) do teclado,
+            ou também com os movimentos laterais do mouse
+
+            4. Totalizando 5 formas que podem ser rotacionadas pressionando seta para cima (ArrowUp)
+
+                5. Pressionando seta para baixo (ArrowDown) o tetraminó é deslocado uma posição para baixo
+
+                    6. Ao clicar a barra de espaço do teclado (Space) ou Click do mouse o tetraminó será fixado na parte mais inferior 
+
+                        7. Quando o tetraminó é fixado na parte inferior da interface o jogador recebe uma pontuação
+
+
+#PONTUAÇÃO
+1. A pontução é definida de acordo com a velocidade em que o tetraminó é deslocado fixamente para a parte mais inferior.
+                                
+    2. Quanto mais rápido o jogador deslocar o tetraminó fixamente para baixo maior pontuação
+
+        3. E quanto maior a pontuação do jogador mais rapido o tetraminó irá descer
+
+                            
+#CAIXA DE INTERAÇÃO
+1. A caixa é 10x20 quadrados, quadrados este que são identicos aos quadrados que compõem os tetraminós
+
+    2.Quando uma linha é preenchida com quadrados dos tetraminós ela será destruída
+
+        3. E as linhas destruídas serão contabilizadas
