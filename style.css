@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif
+}
+section
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(37, 37, 37);
+}
+.content
+{
+   
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    height:400px;
+    
+}
+.Tetris_letras
+{
+    width:600px;
+    height: 200px;
+    display: flex;
+}
+.Tetris_letras h1
+{
+    font-size: 200px;
+    padding: 0;
+}
+.div_button
+{
+    border-radius: 6px;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background:linear-gradient(90deg, red,yellow,orange,purple, blue);
+}
+.div_button button
+{
+    background: none;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border: none;
+    color: white;
+}
