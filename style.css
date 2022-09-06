@@ -1,56 +1,371 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-*
-{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 1.5rem;
-    font-family: 'Poppins', sans-serif
 }
-section
+body
 {
-    width: 100%;
-    height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-color: rgb(37, 37, 37);
+    align-items: start;
+    min-height: 100vh;
+    background: white;
 }
-.content
+
+.Tetramino_1
 {
-   
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    width: 600px;
-    height:400px;
+    position: absolute;
+    top: 10px ;
+    rotate: 90deg;
+    animation:down 0.8s 1s ease-out forwards;
+}
+.Tetramino_1 div
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    opacity: 0;
+    background-color: rgb(96, 96, 179);
+    animation: fade 1ms 0.5s forwards;
+}
+.Tetramino_1 div:nth-child(4)
+{
+    position: relative;
+    right: 40px;
+    bottom: 40px;
+}
+@keyframes down{
+    20%{
+        transform: translateY(-140px);
+    }
+    40%{
+        transform:translateY(-140px) rotate(-90deg);
+    }
+   100%{
+        transform:translateY(-140px) rotate(-90deg) translateY(180px); 
+   }
+}
+.Tetramino_2
+{
+    position: absolute;
+    top: 10px;
+    rotate: 90deg;
+    animation: down2 0.8s 2.3s  forwards;
+}
+.Tetramino_2 div
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    opacity: 0;
+    background-color: rgb(88, 243, 248); 
+    animation: fade 1ms 1.8s forwards;
+}
+@keyframes down2 {
+   20%{
+        transform: translateY(120px);
+   }
+   100%{
+        transform: translate(200px, 120px);
+   }
+}
+.Tetramino_3
+{
+    position: absolute;
+    top: 10px;
+    animation: down3 0.8s 3.6s forwards;
+}
+.Tetramino_3 div
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: rgb(16, 190, 25);
+    transform: translateX(-20px);
+    opacity: 0;
+    animation: fade 1ms 3.1s forwards;
+}
+.Tetramino_3 div:nth-child(1)
+{   
+    position: relative;
+    left: 40px;
+    top: 40px;
+}
+.Tetramino_3 div:nth-child(4)
+{   
+    position: relative;
+    right: 40px;
+    bottom: 40px;
+}
+@keyframes down3 {
+   20%{
+    transform: translateX(80px);
+   }
+  100%{
+    transform: translate(80px, 180px);
+  }
+}
+.Tetramino_4
+{
+    position: absolute;
+    top: 1px;
+    animation: down4 0.8s 4.6s forwards;
+}
+.Tetramino_4 div
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: rgb(208, 221, 29); 
+    transform: translate(-60px, -51px);
+    opacity: 0;
+    animation: fade 1ms 4.1s forwards;
+}
+
+.Tetramino_4 div:nth-child(1)
+{
+    position: relative;
+    left: 40px;
+    top: 120px;
     
 }
-.Tetris_letras
+.Tetramino_4 div:nth-child(2)
 {
-    width:600px;
-    height: 200px;
-    display: flex;
-}
-.Tetris_letras h1
-{
-    font-size: 200px;
-    padding: 0;
-}
-.div_button
-{
-    border-radius: 6px;
     position: relative;
-    width: 100%;
-    height: 100px;
-    background:linear-gradient(90deg, red,yellow,orange,purple, blue);
+    left:40px;
+    top: 40px;
 }
-.div_button button
+@keyframes down4{
+    20%{
+        transform: translate(-80px, 0px);
+    }
+    100%{
+        transform: translate(-80px, 160px)
+    }
+}
+.Tetramino_5
 {
-    background: none;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    border: none;
-    color: white;
+    position: relative;
+    top: 10px;
+    rotate: 90deg;
+    animation: down5 0.8s 5.3s forwards;
 }
+.Tetramino_5 div
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: rgba(225, 8, 233, 0.781); 
+    transform: translate(20px, 20px);
+    opacity: 0;
+    animation: fade 1ms 5.1s forwards;
+}
+.Tetramino_5 div:nth-child(1)
+{
+    position: relative;
+    left: -40px;
+    top: 80px;
+}
+
+
+@keyframes down5{
+       10%{
+            transform:rotate(90deg); 
+       }
+       100%{
+        transform: rotate(90deg) translateY(-200px);
+       }
+
+}
+.Tetramino_6
+{
+    position: absolute;
+    top: 10px;
+    animation: down6 0.8s 6.3s forwards;
+   
+}
+.Tetramino_6 div
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: rgb(190, 16, 16);
+    transform: translateX(-20px);
+    opacity: 0;
+    animation: fade 1ms 6s forwards;
+}
+.Tetramino_6 div:nth-child(1)
+{   
+    position: relative;
+    right: 40px;
+    top: 40px;
+}
+.Tetramino_6 div:nth-child(4)
+{   
+    position: relative;
+    left: 40px;
+    bottom: 40px;
+}
+
+@keyframes down6{
+    20%{
+         transform:translateX(40px); 
+    }
+    100%{
+     transform: translate(40px, 100px);
+    }
+
+}
+
+.Tetramino_7
+{
+    position: absolute;
+    top: 10px ;
+    rotate: 90deg;
+    animation: down7 0.8s 7.3s forwards;
+}
+.Tetramino_7 div
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: rgb(255, 199, 94);
+    transform: translate(-20px,20px);
+    opacity: 0;
+    animation: fade 1ms 6.9s forwards;
+}
+.Tetramino_7 div:nth-child(4)
+{
+    position: relative;
+    right: 40px;
+    bottom: 120px;
+}
+
+@keyframes down7 {
+    20%{
+        transform: rotate(-90deg);
+    }
+    60%{
+        transform: rotate(-90deg) translateX(-40px);
+    }
+    100%{
+        transform: rotate(-90deg) translate(-40px, 120px)
+    }
+}
+.Tetramino_8
+{
+    position: relative;
+    rotate: 90deg;
+    top: -150px;
+    animation: down8 1s 8.4s forwards;
+}
+.Tetramino_8 div
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: rgba(225, 8, 233, 0.781); 
+    opacity: 0;
+    animation: fade 1ms 8s forwards;
+}
+.Tetramino_8 div:nth-child(1)
+{
+    position: relative;
+    left: -40px;
+    top: 80px;
+}
+@keyframes down8 {
+    10%{
+        transform:  rotate(-180deg);
+    }
+    90%{
+        transform:rotate(-180deg) translateY(80px); 
+    }
+   100%{
+        transform:rotate(-180deg) translate(-80px, 80px) ;
+   }
+}
+.Tetramino_9
+{
+    position: absolute;
+    top: 10px ;
+    rotate: 90deg;
+    animation: down9 0.8s 9.8s forwards;
+}
+.Tetramino_9 div
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: rgb(96, 96, 179);
+    opacity: 0;
+    animation: fade 1ms 9.5s forwards;
+   
+}
+.Tetramino_9 div:nth-child(4)
+{
+    position: relative;
+    right: 40px;
+    bottom: 40px;
+}
+@keyframes down9 {
+    20%{
+        transform: translateY(180px);
+    }
+    60%{
+        transform: translateY(180px) rotate(90deg);
+    }
+    100%{
+        transform: translate(100px, 180px) rotate(90deg);
+    }
+}
+.Tetramino_10
+{
+    position: absolute;
+    top: 10px;
+    rotate: 90deg;
+    animation: down10 0.8s 11s forwards;
+}
+.Tetramino_10 div
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: rgb(88, 243, 248);
+    opacity: 0; 
+    animation: fade 1ms 10.7s forwards;
+}
+@keyframes down10 {
+   10%{
+    
+        transform:translateX(-20px) rotate(90deg);
+   }
+ 60%{
+    transform:translate(-20px, -180px) rotate(90deg);
+  }
+  100%{
+    transform:translate(-20px, -180px) rotate(90deg) translateY(-160px);
+    
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes fade {
+   100%{
+        opacity: 1;
+    }
+}
+
