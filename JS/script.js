@@ -1,39 +1,66 @@
 let canvas = document.querySelector('#myCanvas')
 let ctx = canvas.getContext("2d")
    
-function GameBox(){
-     
-    ctx.strokeStyle = "black";
-    x = 0
-    y = 0 
-    while(x < 220)
-    {
-        x+=22
-        ctx.beginPath()
-        ctx.moveTo(x, 0)
-        ctx.lineTo(x, 440)
-        ctx.stroke()
+
+
+    let bloco = {
+        alt: 28,
+        larg: 28,
+        posY: 0,
+        posX: 84,
     }
-    while(y < 440)
-    {
-        y+=22
-        ctx.beginPath()
-        ctx.moveTo(0, y)
-        ctx.lineTo(220, y)
-        ctx.stroke()
+    let space = {
+        largura: 220,
+        altura: 392,
     }
+
+function move(X,Y){
+    ctx.beginPath();
+    ctx.fillRect(X,Y,bloco.larg,bloco.alt)
+    ctx.stroke();
+}
+    
+
+function moveTetramino(event){
+    if(event.key === "ArrowDown"){
+        clear()
+       bloco.posY += 28
+       bloco.posY  <= 392? bloco.posY : bloco.posY = 392
+       move(bloco.posX, bloco.posY) 
+    }
+    if(event.key === "ArrowRight"){
+        clear()
+       bloco.posX += 28
+       bloco.posX <= 196 ? bloco.posX : bloco.posX = 196
+       move(bloco.posX, bloco.posY)   
+    }
+    if(event.key === "ArrowLeft"){
+        clear()
+       bloco.posX -= 28
+       bloco.posX < 0 ? bloco.posX = 0 : bloco.posX 
+       move(bloco.posX, bloco.posY)   
+    }
+   if(event.key === " "){
+    clear()
+    bloco.posY = space.altura
+    move(bloco.posX, bloco.posY)
+   }
+}
+function clear(){
+      ctx.beginPath();
+      ctx.clearRect(bloco.posX,bloco.posY,bloco.larg ,bloco.alt)
+      ctx.stroke();    
 }
 
-function createTetramino(){
-    ctx.fillRect(44, 22, 21, 21)
+function MoveDown(){
+    clear()
+    bloco.posY += 28
+    bloco.posY  <= 392 ? bloco.posY : bloco.posY = 392
+    console.log(bloco)
+    move(bloco.posX, bloco.posY) 
 }
-
-canvas.onkeypress = function moveTetramino(event){
-    console.log('a')
-}
-
+window.addEventListener('keydown', moveTetramino)
 window.addEventListener('load', ()=>{
-    GameBox()
-    createTetramino()
-  
+    move(bloco.posX,bloco.posY)
+    setInterval(MoveDown,800);
 })
