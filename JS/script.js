@@ -1,66 +1,96 @@
+let width = 300
+let height = 600
+let square = 30
+let posy = -2
+let posx = 3
+
+let row;
+let column;
+let randomPiece;
+let randomIndex;
+
+let A = [
+    [0,0,1],
+    [0,0,1],
+    [0,1,1]
+]
+let B = [
+    [1,0,0],
+    [1,0,0],
+    [1,1,0],
+]
+let C = [
+    [0,0,0],
+    [1,1,0],
+    [0,1,1]
+]
+let D = [
+    [0,0,0],
+    [0,1,1],
+    [1,1,0]
+]
+let E = [
+    [0,0,0],
+    [0,1,0],
+    [1,1,1]
+]
+let F = [
+    [0,0,0],
+    [1,1,0],
+    [1,1,0]
+]
+let G = [
+    [0,0,0,0],
+    [0,0,0,0],
+    [1,1,1,1],
+    [0,0,0,0]
+]
+
+let Tetraminos = [A,B,C,D,E,F,G]
+
 let canvas = document.querySelector('#myCanvas')
 let ctx = canvas.getContext("2d")
-   
 
-
-    let bloco = {
-        alt: 28,
-        larg: 28,
-        posY: 0,
-        posX: 84,
-    }
-    let space = {
-        largura: 220,
-        altura: 392,
-    }
-
-function move(X,Y){
-    ctx.beginPath();
-    ctx.fillRect(X,Y,bloco.larg,bloco.alt)
-    ctx.stroke();
+function makeRandomPieces(){
+    randomIndex = Math.floor(Math.random() * Tetraminos.length)
+    randomPiece = Tetraminos[randomIndex]
 }
+makeRandomPieces()
+function drawCurrentPieces(){
+    for(row=0; row < randomPiece.length; row++){
+        for(column=0;column<randomPiece[row].length; column++){
+           if(randomPiece[row][column]){
+            draw(posx + column, posy+row, square)
+            }
+        }
+    }
+
+ }
+ function clearCurrentPieces(){
+    for(row=0; row < randomPiece.length; row++){
+        for(column=0;column<randomPiece[row].length; column++){
+           if(randomPiece[row][column]){
+            clear(posx + column, posy+row, square)
+            }
+        }
+    }
+
+ }
+ function draw(x,y, square){
+    ctx.beginPath()
+    ctx.fillRect(x * square, y * square, square,square)
+}
+
+function clear(x,y, square){
+    ctx.beginPath()
+    ctx.clearRect(x * square, y * square, square,square)
+}
+function drop(){
     
-
-function moveTetramino(event){
-    if(event.key === "ArrowDown"){
-        clear()
-       bloco.posY += 28
-       bloco.posY  <= 392? bloco.posY : bloco.posY = 392
-       move(bloco.posX, bloco.posY) 
-    }
-    if(event.key === "ArrowRight"){
-        clear()
-       bloco.posX += 28
-       bloco.posX <= 196 ? bloco.posX : bloco.posX = 196
-       move(bloco.posX, bloco.posY)   
-    }
-    if(event.key === "ArrowLeft"){
-        clear()
-       bloco.posX -= 28
-       bloco.posX < 0 ? bloco.posX = 0 : bloco.posX 
-       move(bloco.posX, bloco.posY)   
-    }
-   if(event.key === " "){
-    clear()
-    bloco.posY = space.altura
-    move(bloco.posX, bloco.posY)
-   }
+    clearCurrentPieces()
+    posy++
+    posy <= 17?  posy  : posy = 17
+    console.log(posy)
+    drawCurrentPieces()
 }
-function clear(){
-      ctx.beginPath();
-      ctx.clearRect(bloco.posX,bloco.posY,bloco.larg ,bloco.alt)
-      ctx.stroke();    
-}
-
-function MoveDown(){
-    clear()
-    bloco.posY += 28
-    bloco.posY  <= 392 ? bloco.posY : bloco.posY = 392
-    console.log(bloco)
-    move(bloco.posX, bloco.posY) 
-}
-window.addEventListener('keydown', moveTetramino)
-window.addEventListener('load', ()=>{
-    move(bloco.posX,bloco.posY)
-    setInterval(MoveDown,800);
-})
+ setInterval(drop,1000)

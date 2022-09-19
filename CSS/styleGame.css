@@ -1,4 +1,12 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 canvas
 {
-    background: url('fundo.png');
+
+    background-color:rgb(102, 38, 102);
+    border: 5px solid black;
+    border-top: none;
 }
