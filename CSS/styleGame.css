@@ -6,7 +6,7 @@ body{
 canvas
 {
 
-    background-color:rgb(102, 38, 102);
+    background-color:gray;
     border: 5px solid black;
     border-top: none;
 }
